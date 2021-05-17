@@ -1,0 +1,102 @@
+
+    {% extends 'article/basic.html' %} 
+    {% block title%} Contact Us - Blog{% endblock %}
+   {% block css %}
+
+    {% endblock %}
+  {% block body %}
+   {% load static %}
+  
+   
+      
+    <div class="site-section bg-light">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-md-7 mb-5">
+
+            
+
+            <form action="/article/contact/" class="p-5 bg-white" method="post"> {% csrf_token %}
+             
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" id="fname" class="form-control" name='firstname' required="" >
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control" name="lastname" required="">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" id="email" class="form-control" name="email" required="">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Phone</label> 
+                  <input type="subject" id="subject" class="form-control" name="phone" required="">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Message</label> 
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" name="message" placeholder="Write your notes or questions here..." required=""></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+          <div class="col-md-5">
+            
+            <div class="p-4 mb-3 bg-white">
+              <p class="mb-0 font-weight-bold">Address</p>
+              <p class="mb-4">K*******, N*****</p>
+
+              <p class="mb-0 font-weight-bold">Phone</p>
+              <p class="mb-4"><a href="#">+977 98********</a></p>
+
+              <p class="mb-0 font-weight-bold">Email Address</p>
+              <p class="mb-0"><a href="#">D*******@gmail.com</a></p>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+       
+    </div>
+    
+    
+    {% endblock %}
+{%block js %}
+<script>
+
+
+
+{% if thank %}
+alert('Thanks for contacting us. We will get back to tou soon!!');
+
+document.location = "/article/contact";
+{% endif %}
+
+
+</script>
+{% endblock %}

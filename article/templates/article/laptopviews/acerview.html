@@ -1,0 +1,47 @@
+
+        {% extends 'article/basic.html' %} 
+    {% block title%} Contact Us - Blog{% endblock %}
+   {% block css %}
+
+    {% endblock %}
+  {% block body %}
+   {% load static %}
+    
+   
+
+    <div class="site-section bg-white">
+      <div class="container-xl">
+        <div class="row">
+          {% for item in view %}
+          <div class="col-lg-4 mb-4">
+            
+            <div class="entry2">
+              <a href="acerdetail/{{item.id}}"><img style="width: 300px;
+height: 200px;" src="/media/{{item.image}}" alt="Image" class="img-fluid rounded"></a>
+              <div class="excerpt">
+              <span class="post-category text-white bg-secondary mb-3">{{item.product_brand}}</span>
+
+              <h2><a href="acerdetail/{{item.id}}">{{item.titel|slice:"0:40"}}</a></h2>
+              <div class="post-meta align-items-center text-left clearfix">
+                <span class="d-inline-block mt-1"> <a href="#"></a></span>
+                <span><a style="font-family: Times New Roman;color: black; font: bold;">&nbsp;-&nbsp; {{item.date}}</a></span>
+              </div>
+              
+                <p style="font-size: 120%; font-family: Times New Roman; color: black;">{{item.description|slice:"0:100"}}...</p>
+                <p><a href="acerdetail/{{item.id}}">Read More</a></p>
+              </div>
+            </div>
+           
+          </div>
+        {% endfor %}
+         
+
+       </div>
+     </div>
+        </div>
+         
+    
+        {% endblock %}
+{%block js %}
+
+{% endblock %}

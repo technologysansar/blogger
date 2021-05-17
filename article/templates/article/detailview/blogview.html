@@ -1,0 +1,101 @@
+{% extends 'article/basic.html' %} 
+    {% block title%} Contact Us - Blog{% endblock %}
+   {% block css %}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+    {% endblock %}
+  {% block body %}
+   {% load static %}
+    
+  
+    
+    <section class="site-section py-lg">
+      <div class="container">
+        
+        <div class="row blog-entries element-animate">
+
+          <div class="col-md-12 col-lg-8 main-content">
+            
+            <div class="post-content-body">
+              <p><h2 style="font-size: large; border:2px solid black; ">{{view.titel}}</b></h2>
+                <span>{{view.date}} ({{view.views}} Views)</span>
+              <p style="font-size: 120%; font-family: Times New Roman; color: black;">{{view.product_des|safe}}</p>
+           
+           <div class="pt-5">
+              
+            </div>
+            </div>
+
+            
+                     
+
+          
+
+          </div>
+
+          <!-- END main-content -->
+
+          <div class="col-md-12 col-lg-4 sidebar">
+            <div class="sidebar-box search-form-wrap">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div>
+            <!-- END sidebar-box -->
+            
+            <!-- END sidebar-box -->  
+            <div class="sidebar-box">
+              <h3 class="heading">Popular Posts</h3>
+              <div class="post-entry-sidebar">
+                <ul>
+                  <li>
+                    {% for item in item %}
+                    <a href="{{item.id}}">
+                      <img src="/media/{{item.image}}" alt="Image placeholder" class="mr-4">
+                      <div class="text">
+                        <h4 href="{{item.id}}">{{item.titel|slice:"0:30"}}...</h4>
+                        <div class="post-meta">
+                          <span class="mr-2">{{item.date}} </span>
+                        </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+            <!-- END sidebar-box -->
+
+            
+        </div>
+      </div>
+   
+<!-- comment section -->
+
+
+    </section>
+
+
+    
+
+    
+    
+   {% endblock %}
+{%block js %}
+
+{% endblock %}
