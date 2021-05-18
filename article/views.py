@@ -285,7 +285,7 @@ def vivomobiledetail(request, id):
 	vivo = Mobile.objects.filter(product_brand="Vivo").order_by('-id')[0:5]
 	return render(request, 'article/mobileviews/vivomobiledetail.html',{'count1':count1,
 		'count2':count2,'count3':count3,'count4':count4,'count5':count5,
-		'count6':count6,'views':view,'item':vivo})
+		'count6':count6,'view':views,'item':vivo})
 def search(request):
 	if request.method=="POST":
 		srch = request.POST['srh']
@@ -350,7 +350,7 @@ def subscribe(request):
 		if not (Subscribe.objects.filter(Email=contact).exists()):
 			contact=Subscribe(Email=contact)
 			contact.save()
-			send_mail("Thank you for subscribing", "Now you can get more information about new product, Thank You", settings.EMAIL_HOST_USER, [contact])
+			
 			
 			messages.success(request, ' Thank you for subscribing')
 			return redirect('index')
